@@ -13,14 +13,14 @@
       </div>
     <br />
     <label >Edad</label>
-    <input class="alert alert-danger" role="alert" formControlName="edad" [(ngModel)]="usuario.edad"  type="number" />
-      <div *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty" >
+    <input  role="alert" formControlName="edad" [(ngModel)]="usuario.edad"  type="number" />
+      <div class="alert alert-danger"  *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty" >
         <span *ngIf="myForm.get('edad').hasError('required')" >Nombre es Requerido</span>
       </div>
     <br />
     <label >Pass</label>
-    <input class="alert alert-danger" role="alert" formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
-      <div *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty" >
+    <input role="alert" formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
+      <div class="alert alert-danger"  *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty" >
         <span *ngIf="myForm.get('pass').hasError('required')" >Nombre es Requerido</span>
       </div>
   </div>

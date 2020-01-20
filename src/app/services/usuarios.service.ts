@@ -26,18 +26,20 @@ export class UsuariosService {
       });
     }
   }
-  post<T>(path: string, object: T, token?: string) {
+  post(path: string, object: any, token?: string): Observable<any> {
     if(token){
-    return this.http.post(this.url + path, object, {
-      headers: new HttpHeaders()
+      let headers: HttpHeaders = new HttpHeaders()
       .set('Content-Type', 'application/json')
-      .set('token', token),
+      .set('token', token);
+    return this.http.post(this.url + path, object, {
+      headers: headers,
       observe: 'response'
     });
   } else {
+    let headers: HttpHeaders = new HttpHeaders()
+      .set('Content-Type', 'application/json');
     return this.http.post(this.url + path, object, {
-      headers: new HttpHeaders()
-      .set('Content-Type', 'application/json'),
+      headers: headers,
       observe: 'response'
     });
   }
