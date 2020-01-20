@@ -1,6 +1,7 @@
 import { IUsuario, Usuario } from './../../models/iusuario';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UsuariosService } from 'src/app/services/usuarios.service';
 
 @Component({
   selector: 'app-formulario',
@@ -11,7 +12,8 @@ export class FormularioComponent implements OnInit {
   public usuario: Usuario = new Usuario(null, null, null, null);
   myForm: FormGroup;
   constructor(
-    public fb: FormBuilder
+    public fb: FormBuilder,
+    public usuarioService: UsuariosService
   ) {
 
     this.validaciones();
@@ -30,6 +32,12 @@ export class FormularioComponent implements OnInit {
 
   public guardar() {
     console.log(this.usuario);
+    this.usuarioService.post('/usuarios/operaciones', this.usuario)
+    .subscribe(data => {
+      console.log(data)
+    }, err => {
+      console.error(err);
+    })
   }
 
 }

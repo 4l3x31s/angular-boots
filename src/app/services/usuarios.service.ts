@@ -15,27 +15,27 @@ export class UsuariosService {
   }
   get<T>(path: string, token?: string) {
     if (token) {
-      return this.http.get<T>(this.url + path, {
+      return this.http.get(this.url + path, {
         headers: new HttpHeaders()
         .set('token', token),
         observe: 'response'
       });
     } else {
-      return this.http.get<T>(this.url + path, {
+      return this.http.get(this.url + path, {
         observe: 'response'
       });
     }
   }
   post<T>(path: string, object: T, token?: string) {
     if(token){
-    return this.http.post<T>(this.url + path, object, {
+    return this.http.post(this.url + path, object, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('token', token),
       observe: 'response'
     });
   } else {
-    return this.http.post<T>(this.url + path, object, {
+    return this.http.post(this.url + path, object, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json'),
       observe: 'response'
@@ -44,14 +44,14 @@ export class UsuariosService {
   }
   put<T>(path: string,id: string, object: T, token?: string){
     if(token){
-    return this.http.put<T>(this.url + path + id, object, {
+    return this.http.put(this.url + path + id, object, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('token', token),
       observe: 'response'
     });
   } else {
-    return this.http.put<T>(this.url + path + id, object, {
+    return this.http.put(this.url + path + id, object, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json'),
       observe: 'response'
@@ -60,14 +60,14 @@ export class UsuariosService {
   }
   delete<T>(path: string, id: string, token?: string) {
     if(token){
-    return this.http.delete<T>(this.url + path + id, {
+    return this.http.delete(this.url + path + id, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('token', token),
       observe: 'response'
       });
     } else {
-      return this.http.delete<T>(this.url + path + id, {
+      return this.http.delete(this.url + path + id, {
         headers: new HttpHeaders()
         .set('Content-Type', 'application/json'),
         observe: 'response'

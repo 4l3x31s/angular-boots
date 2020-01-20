@@ -7,6 +7,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { FormularioComponent } from './pages/formulario/formulario.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule
 
