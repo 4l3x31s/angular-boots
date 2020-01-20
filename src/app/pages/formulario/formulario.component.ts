@@ -1,5 +1,6 @@
 import { IUsuario, Usuario } from './../../models/iusuario';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -8,10 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioComponent implements OnInit {
   public usuario: Usuario = new Usuario('', '', 0, '');
+  myForm: FormGroup;
+  constructor(
+    public fb: FormBuilder
+  ) {
 
-  constructor() { }
+    this.validaciones();
+  }
 
   ngOnInit() {
+  }
+  validaciones() {
+    this.myForm = this.fb.group({
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      edad: ['', [Validators.required]],
+      pass: ['', [Validators.required]]
+    });
   }
 
   public guardar() {

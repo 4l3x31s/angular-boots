@@ -1,16 +1,28 @@
-<form (ngSubmit)="guardar()" >
+<form (ngSubmit)="guardar()" [formGroup]="myForm" >
   <div>
     <label >Nombre</label>
-    <input [(ngModel)]="usuario.nombre" [ngModelOptions]="{standalone: true}" type="text" />
+    <input formControlName="nombre" [(ngModel)]="usuario.nombre"  type="text" />
+      <div *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty" >
+        <span *ngIf="myForm.get('nombre').hasError('required')" >Nombre es Requerido</span>
+      </div>
     <br />
     <label >Apellido</label>
-    <input  [(ngModel)]="usuario.apellido" [ngModelOptions]="{standalone: true}"  type="text" />
+    <input formControlName="apellido"  [(ngModel)]="usuario.apellido"  type="text" />
+      <div *ngIf="myForm.get('apellido').errors && myForm.get('apellido').dirty" >
+        <span *ngIf="myForm.get('apellido').hasError('required')" >Nombre es Requerido</span>
+      </div>
     <br />
     <label >Edad</label>
-    <input  [(ngModel)]="usuario.edad" [ngModelOptions]="{standalone: true}" type="number" />
+    <input formControlName="edad" [(ngModel)]="usuario.edad"  type="number" />
+      <div *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty" >
+        <span *ngIf="myForm.get('edad').hasError('required')" >Nombre es Requerido</span>
+      </div>
     <br />
     <label >Pass</label>
-    <input  [(ngModel)]="usuario.pass" [ngModelOptions]="{standalone: true}" type="password" />
+    <input formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
+      <div *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty" >
+        <span *ngIf="myForm.get('pass').hasError('required')" >Nombre es Requerido</span>
+      </div>
   </div>
   <input id="btnGuardar" type="submit" />
 </form>
