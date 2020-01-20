@@ -2,24 +2,24 @@
   <div>
     <label >Nombre</label>
     <input formControlName="nombre" [(ngModel)]="usuario.nombre"  type="text" />
-      <div *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty" >
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty" >
         <span *ngIf="myForm.get('nombre').hasError('required')" >Nombre es Requerido</span>
       </div>
     <br />
     <label >Apellido</label>
     <input formControlName="apellido"  [(ngModel)]="usuario.apellido"  type="text" />
-      <div *ngIf="myForm.get('apellido').errors && myForm.get('apellido').dirty" >
+      <div class="alert alert-danger" role="alert" *ngIf="myForm.get('apellido').errors && myForm.get('apellido').dirty" >
         <span *ngIf="myForm.get('apellido').hasError('required')" >Nombre es Requerido</span>
       </div>
     <br />
     <label >Edad</label>
-    <input formControlName="edad" [(ngModel)]="usuario.edad"  type="number" />
+    <input class="alert alert-danger" role="alert" formControlName="edad" [(ngModel)]="usuario.edad"  type="number" />
       <div *ngIf="myForm.get('edad').errors && myForm.get('edad').dirty" >
         <span *ngIf="myForm.get('edad').hasError('required')" >Nombre es Requerido</span>
       </div>
     <br />
     <label >Pass</label>
-    <input formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
+    <input class="alert alert-danger" role="alert" formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
       <div *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty" >
         <span *ngIf="myForm.get('pass').hasError('required')" >Nombre es Requerido</span>
       </div>

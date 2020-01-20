@@ -8,7 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./formulario.component.scss']
 })
 export class FormularioComponent implements OnInit {
-  public usuario: Usuario = new Usuario('', '', 0, '');
+  public usuario: Usuario = new Usuario(null, null, null, null);
   myForm: FormGroup;
   constructor(
     public fb: FormBuilder
