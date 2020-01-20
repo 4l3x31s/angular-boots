@@ -1,0 +1,17 @@
+<form (ngSubmit)="guardar()" >
+  <div>
+    <label >Nombre</label>
+    <input [(ngModel)]="usuario.nombre" [ngModelOptions]="{standalone: true}" type="text" />
+    <br />
+    <label >Apellido</label>
+    <input  [(ngModel)]="usuario.apellido" [ngModelOptions]="{standalone: true}"  type="text" />
+    <br />
+    <label >Edad</label>
+    <input  [(ngModel)]="usuario.edad" [ngModelOptions]="{standalone: true}" type="number" />
+    <br />
+    <label >Pass</label>
+    <input  [(ngModel)]="usuario.pass" [ngModelOptions]="{standalone: true}" type="password" />
+  </div>
+  <input id="btnGuardar" type="submit" />
+</form>
+<!--  [ngModelOptions]="{standalone: true}" -->
