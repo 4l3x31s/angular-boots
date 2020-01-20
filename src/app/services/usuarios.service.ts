@@ -44,16 +44,16 @@ export class UsuariosService {
     });
   }
   }
-  put<T>(path: string,id: string, object: T, token?: string){
+  put<T>(path: string, object: T, token?: string){
     if(token){
-    return this.http.put(this.url + path + id, object, {
+    return this.http.put(this.url + path, object, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('token', token),
       observe: 'response'
     });
   } else {
-    return this.http.put(this.url + path + id, object, {
+    return this.http.put(this.url + path, object, {
       headers: new HttpHeaders()
       .set('Content-Type', 'application/json'),
       observe: 'response'

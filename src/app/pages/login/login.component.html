@@ -1,15 +1,30 @@
-<form (ngSubmit)="guardar()" [formGroup]="myForm" >
-  <div>
-    <label >Nombre</label>
-    <input formControlName="nombre" [(ngModel)]="usuario.nombre"  type="text" />
-      <div class="alert alert-danger" role="alert" *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty" >
-        <span *ngIf="myForm.get('nombre').hasError('required')" >Nombre es Requerido</span>
+<div class="container ">
+  <form (ngSubmit)="guardar()" [formGroup]="myForm" >
+
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Nombre</label>
+          <input class="form-control" formControlName="nombre" [(ngModel)]="usuario.nombre"  type="text" />
+          <div class="alert-danger" role="alert" *ngIf="myForm.get('nombre').errors && myForm.get('nombre').dirty" >
+            <small class="form-text text-muted" *ngIf="myForm.get('nombre').hasError('required')" >Nombre es Requerido</small>
+          </div>
+        </div>
       </div>
-    <label >Pass</label>
-    <input role="alert" formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
-      <div class="alert alert-danger"  *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty" >
-        <span *ngIf="myForm.get('pass').hasError('required')" >Pass es Requerido</span>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input class="form-control" role="alert" formControlName="pass" [(ngModel)]="usuario.pass"  type="password" />
+          <div class="alert-danger"  *ngIf="myForm.get('pass').errors && myForm.get('pass').dirty" >
+            <small class="form-text text-muted" *ngIf="myForm.get('pass').hasError('required')" >Pass es Requerido</small>
+          </div>
+        </div>
       </div>
-  </div>
-  <input id="btnGuardar" type="submit" />
-</form>
+    </div>
+    <input [disabled]="myForm.invalid" class="btn btn-primary btn-lg btn-block" id="btnGuardar" type="submit" value="Ingresar" />
+    <br />
+    <input (click)="irRegistro()" class="btn btn-primary btn-lg " id="btnGuardar" type="submit" value="Registrar Nuevo Usuario" />
+
+  </form>
